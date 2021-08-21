@@ -34,43 +34,49 @@ btn8gb.addEventListener('click', function () {
 	total.extraMemory1 = 0;
 	extraMemory.innerText = total.extraMemory1;
 	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 btn16gb.addEventListener('click', function () {
 	total.extraMemory1 = 180;
 	extraMemory.innerText = total.extraMemory1;
 	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 btn256gb.addEventListener('click', function () {
 	total.extraStorage1 = 0;
 	extraStorage.innerText = total.extraStorage1;
 	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 btn512gb.addEventListener('click', function () {
 	total.extraStorage1 = 100;
 	extraStorage.innerText = total.extraStorage1;
 	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 btn1tb.addEventListener('click', function () {
 	total.extraStorage1 = 180;
 	extraStorage.innerText = total.extraStorage1;
 	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 deliveryFree.addEventListener('click', function () {
 	total.chargeFee1 = 0;
 	chargeFee.innerText = total.chargeFee1;
 	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 deliveryCharge.addEventListener('click', function () {
 	total.chargeFee1 = 20;
 	chargeFee.innerText = total.chargeFee1;
 	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 promoCode.addEventListener('click', function () {
 	const promoCodeInputTxt = promoCodeInput.value;
-	if (promoCodeInputTxt == 'stevekaku') {
+	if (promoCodeInputTxt === 'stevekaku') {
 		footerTotal.innerText =
 			parseFloat(totalPrice.innerText) - parseFloat(totalPrice.innerText) * 0.2;
-		console.log(totalPrice.innerText);
 	} else {
 		alert('Invalid Promo Code');
 	}
