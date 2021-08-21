@@ -14,52 +14,69 @@ const promoCode = document.getElementById('promo-code');
 const footerTotal = document.getElementById('footer-total');
 const promoCodeInput = document.getElementById('promo-code-input');
 
+let total = {
+	totalPrice1: 1299,
+	extraMemory1: 0,
+	extraStorage1: 0,
+	chargeFee1: 0,
+	bestPrice: 1299,
+	totalFunc: function () {
+		return (
+			this.totalPrice1 +
+			this.extraMemory1 +
+			this.extraStorage1 +
+			this.chargeFee1
+		);
+	},
+};
+
 btn8gb.addEventListener('click', function () {
-	extraMemory.innerText = '0';
-	totalPrice.innerText = parseInt(totalPrice.innerText) - parseInt(180);
-	footerTotal.innerText = parseInt(footerTotal.innerText) - parseInt(180);
+	total.extraMemory1 = 0;
+	extraMemory.innerText = total.extraMemory1;
+	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 btn16gb.addEventListener('click', function () {
-	extraMemory.innerText = '180';
-	totalPrice.innerText = parseInt(totalPrice.innerText) + parseInt('180');
-	footerTotal.innerText = parseInt(footerTotal.innerText) + parseInt('180');
-	btn16gb.disabled = true;
+	total.extraMemory1 = 180;
+	extraMemory.innerText = total.extraMemory1;
+	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 btn256gb.addEventListener('click', function () {
-	extraStorage.innerText = '0';
-	totalPrice.innerText = parseInt(totalPrice.innerText) - parseInt(100);
-	footerTotal.innerText = parseInt(footerTotal.innerText) - parseInt(100);
+	total.extraStorage1 = 0;
+	extraStorage.innerText = total.extraStorage1;
+	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 btn512gb.addEventListener('click', function () {
-	extraStorage.innerText = '100';
-	totalPrice.innerText = parseInt(totalPrice.innerText) + parseInt('100');
-	footerTotal.innerText = parseInt(footerTotal.innerText) + parseInt('100');
-	btn512gb.disabled = true;
+	total.extraStorage1 = 100;
+	extraStorage.innerText = total.extraStorage1;
+	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 btn1tb.addEventListener('click', function () {
-	extraStorage.innerText = '180';
-	totalPrice.innerText = parseInt(totalPrice.innerText) + parseInt('180');
-	footerTotal.innerText = parseInt(footerTotal.innerText) + parseInt('180');
-	btn1tb.disabled = true;
+	total.extraStorage1 = 180;
+	extraStorage.innerText = total.extraStorage1;
+	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 deliveryFree.addEventListener('click', function () {
-	chargeFee.innerText = '0';
-	totalPrice.innerText = parseInt(totalPrice.innerText) - parseInt('20');
-	footerTotal.innerText = parseInt(footerTotal.innerText) - parseInt('20');
+	total.chargeFee1 = 0;
+	chargeFee.innerText = total.chargeFee1;
+	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 deliveryCharge.addEventListener('click', function () {
-	chargeFee.innerText = '20';
-	totalPrice.innerText = parseInt(totalPrice.innerText) + parseInt('20');
-	footerTotal.innerText = parseInt(footerTotal.innerText) + parseInt('20');
-
-	deliveryCharge.disabled = true;
+	total.chargeFee1 = 20;
+	chargeFee.innerText = total.chargeFee1;
+	totalPrice.innerText = total.totalFunc();
+	footerTotal.innerText = total.totalFunc();
 });
 promoCode.addEventListener('click', function () {
 	const promoCodeInputTxt = promoCodeInput.value;
-	if (promoCodeInputTxt == 'stevekaku') {
+	if (promoCodeInputTxt === 'stevekaku') {
 		footerTotal.innerText =
 			parseFloat(totalPrice.innerText) - parseFloat(totalPrice.innerText) * 0.2;
-		promoCode.disabled = true;
 	} else {
 		alert('Invalid Promo Code');
 	}
